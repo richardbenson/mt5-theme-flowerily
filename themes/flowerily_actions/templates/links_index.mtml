@@ -1,4 +1,4 @@
-<mt:SetVarBlock name="pagetitle">Action Stream</mt:SetVarBlock>
+<mt:SetVarBlock name="pagetitle">Action Stream - Links</mt:SetVarBlock>
 <$mt:Include module="Header"$>
 
 <div id="content">
@@ -8,7 +8,7 @@
 	<mt:setvarblock name="today_date"><mt:date format="%B %e"></mt:setvarblock>
 	<mt:setvarblock name="name_regex">/<mt:var name="mt_author_display_name">/</mt:setvarblock>
 	
-	<mt:ActionStreams display_name="$mt_author_display_name" lastn="9999999">
+	<mt:ActionStreams display_name="$mt_author_display_name" lastn="1000" stream="links">
 	
 		<mt:setvarblock name="stream_service"><mt:var name="service_type"></mt:setvarblock>
 		<mt:setvarblock name="thumb_url"><mt:StreamActionThumbnailURL></mt:setvarblock>

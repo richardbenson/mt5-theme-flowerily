@@ -1,0 +1,74 @@
+<mt:SetVarBlock name="pagetitle">Action Stream - Status Updates</mt:SetVarBlock>
+<$mt:Include module="Header"$>
+
+<div id="content">
+	<h2>Status Updates</h2>
+	
+	<div class="action-stream hfeed">
+	
+	<mt:setvarblock name="today_date"><mt:date format="%B %e"></mt:setvarblock>
+	<mt:setvarblock name="name_regex">/<mt:var name="mt_author_display_name">/</mt:setvarblock>
+	
+	<mt:ActionStreams display_name="$mt_author_display_name" lastn="1000" stream="statuses">
+	
+		<mt:setvarblock name="stream_service"><mt:var name="service_type"></mt:setvarblock>
+		<mt:setvarblock name="thumb_url"><mt:StreamActionThumbnailURL></mt:setvarblock>
+		<mt:setvarblock name="stream_title"></mt:setvarblock>
+		<mt:setvarblock name="stream_description"></mt:setvarblock>
+		<mt:setvarblock name="entry_id"></mt:setvarblock>
+				 
+		<mt:DateHeader>
+	
+			<mt:setvarblock name="linkslist"></mt:setvarblock>
+	
+		</mt:DateHeader>
+	 
+	
+				<mt:setvarblock name="linkslist">
+	<mt:var name="linkslist"> 
+				   <li class="hentry service-icon service-<mt:var name="service_type">">
+				
+				<span class="stream-meta">@ <mt:StreamActionDate format="%H:%M"></span> 
+				<mt:StreamAction regex_replace="$name_regex","">
+				
+			</li>
+					
+				</mt:setvarblock>
+	  
+			</mt:if>
+	
+			<mt:datefooter>
+			<mt:if name="linkslist">
+			<div class="action-stream-day">
+			<mt:setvarblock name="this_date"><mt:StreamActionDate format="<span class='day'>%e</span> %b<br />%Y"></mt:setvarblock>
+			<div class="action-stream-header asset-name">
+				<mt:var name="this_date">
+			</div>
+			<ul class="action-stream-list">
+	  
+	 
+				<mt:var name="linkslist">
+	
+	
+			</ul>
+			</div>
+			</mt:if>
+	
+	
+			</mt:datefooter>
+	
+	</mt:ActionStreams>
+	</div>
+	
+
+</div>
+<!-- end #content -->
+<div id="sidebar">
+	<ul>
+		<$mt:WidgetSet name="Elsewhere Sidebar"$>
+	</ul>
+</div>
+<!-- end #sidebar -->
+<div style="clear: both;">&nbsp;</div>
+
+<$mt:Include module="Footer"$>

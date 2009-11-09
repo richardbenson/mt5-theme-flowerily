@@ -1,0 +1,76 @@
+<mt:SetVarBlock name="pagetitle">Action Stream - Videos</mt:SetVarBlock>
+<mt:SetVarBlock name="html_head">
+	<script type="text/javascript">
+		var RBModules = [ "youtube" ];
+	</script>
+</mt:SetVarBlock>
+<$mt:Include module="Header"$>
+
+<div id="content">
+	<h2>Status Updates</h2>
+
+	<div class="action-stream hfeed">
+	
+	<mt:setvarblock name="today_date"><mt:date format="%B %e"></mt:setvarblock>
+	<mt:setvarblock name="name_regex">/<mt:var name="mt_author_display_name">/</mt:setvarblock>
+	
+	<mt:ActionStreams display_name="$mt_author_display_name" lastn="999999" stream="favorites">
+	
+		<mt:setvarblock name="stream_service"><mt:var name="service_type"></mt:setvarblock>
+		<mt:setvarblock name="thumb_url"><mt:StreamActionThumbnailURL></mt:setvarblock>
+	
+		<mt:DateHeader>
+			<div class="action-stream-day">
+			<mt:setvarblock name="this_date"><mt:StreamActionDate format="<span class='day'>%e</span> %b<br />%Y"></mt:setvarblock>
+			<div class="action-stream-header asset-name">
+				<mt:var name="this_date">
+			</div>
+			<ul class="action-stream-list">
+	
+		</mt:DateHeader>
+	
+	 
+			<li class="hentry service-icon service-<mt:var name="service_type">">
+				<mt:if name="service_type" eq="website">
+					<MTEntries id="$entry_id">
+						<$MTInclude module="Entry Summary"$>
+					</MTEntries>
+				<mt:else>
+				<span class="stream-meta">@ <mt:StreamActionDate format="%H:%M"></span> 
+				<mt:StreamAction regex_replace="$name_regex","">
+				<div class="stream-extra-description">
+					<mt:if name="service_type" eq="youtube">
+						<div class="stream-extra-thumbnail">
+							<a href="<$MTStreamActionURL$>" target="_blank" title="<$MTStreamActionTitle$>" class="youtube-link"><img src='<mt:var name='thumb_url'>' /></a>
+						</div>
+					<mt:else>
+					<mt:if name="thumb_url">
+						<div class="stream-extra-thumbnail">
+							<a href="<$MTStreamActionURL$>" target="_blank"><img src='<mt:var name='thumb_url'>' /></a>
+						</div>
+					</mt:if>
+					</mt:if>
+				 </div>
+				</mt:if>
+			</li>
+	 
+			<mt:datefooter>
+	
+			</ul>
+			</div>
+			</mt:datefooter>
+	
+	</mt:ActionStreams>
+	</div> 
+
+</div>
+<!-- end #content -->
+<div id="sidebar">
+	<ul>
+		<$mt:WidgetSet name="Elsewhere Sidebar"$>
+	</ul>
+</div>
+<!-- end #sidebar -->
+<div style="clear: both;">&nbsp;</div>
+
+<$mt:Include module="Footer"$>

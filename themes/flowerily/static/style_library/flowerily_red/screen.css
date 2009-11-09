@@ -22,3 +22,7 @@ a {
 #menu .current_page_item a {
 	background: #290004;
 }
+
+.action-stream .action-stream-day {
+	border-top: 1px dashed #842946;
+}
