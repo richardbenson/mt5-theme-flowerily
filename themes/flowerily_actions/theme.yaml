@@ -17,6 +17,13 @@ elements:
     data:
       base_path: templates
       label: 'exported_template set'
+      base_css: css/base.css
+      stylecatcher_libraries:
+        flowerily:
+          url: '{{support}}theme_static/flowerily/style_library/flowerily.html'
+          label: Flowerily Styles
+          description_label: Colour variations for Flowerily.
+          order: 1
       templates:
         index:
           main_index:
