@@ -44,6 +44,29 @@
         <mt:ignore>
         <!-- Display greeting for users if blog allows users to register locally -->
         </mt:ignore>
+            <div id="auth-options" class="pkg">
+                <mt:var name="otherauth" value="yes" append="1">
+                <div class="auth-button">
+                  <fb:login-button length="long" onlogin="signface_login();"></fb:login-button>
+                </div>
+                <form id="facebook-signin-form" method="post" action="<$mt:AdminCGIPath$><$mt:CommentScript$>">
+                  <input type="hidden" name="__mode" value="login_external" />
+                  <input type="hidden" name="blog_id" value="<$mt:BlogID$>" />
+                  <input type="hidden" name="entry_id" value="<$mt:EntryID$>" />
+                  <input type="hidden" name="static" value="1" />
+                  <input type="hidden" name="key" value="Facebook" />
+                  <input type="hidden" name="facebook_id" id="facebook-signin-id-input" />
+                  <input type="hidden" name="facebook_nick" id="facebook-signin-nick-input" />
+                  <input type="hidden" name="facebook_url" id="facebook-signin-url-input" />
+                </form>
+                <!-- put the script tags in the <body> element, after all XFBML -->
+                <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+                <script type="text/javascript" src="<$mt:StaticWebPath$>plugins/FacebookCommenters/fbconnect.js"></script>
+                <script type="text/javascript">
+                  FB.init(window.api_key,'<mt:StaticWebPath>plugins/FacebookCommenters/xd_receiver.html');
+                </script>
+            </div>
+			
             <div id="comment-greeting"></div>
 
 

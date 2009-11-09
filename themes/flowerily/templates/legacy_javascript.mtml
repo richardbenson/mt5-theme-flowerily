@@ -411,6 +411,7 @@ function Entry() {
 			});
 			loader.insert();
 			mtHide('comments-open-data');
+			mtHide('auth-options');
             if (mtCaptchaVisible)
                 mtHide('comments-open-captcha');
         } else {
@@ -596,7 +597,7 @@ function mtShowGreeting() {
         }
     } else {
         if (reg_reqd) {
-            phrase = '<a href="javascript:void(0)" onclick="return mtSignInOnClick(\'comment-greeting\')">Sign in</a> to comment.';
+            phrase = 'Or <a href="javascript:void(0)" onclick="return mtSignInOnClick(\'comment-greeting\')">sign in</a> using another method.';
         } else {
             phrase = '<a href="javascript:void(0)" onclick="return mtSignInOnClick(\'comment-greeting\')">Sign in</a> to comment, or comment anonymously.';
         }
