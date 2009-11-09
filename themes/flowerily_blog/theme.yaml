@@ -30,6 +30,13 @@ elements:
     data:
       base_path: templates
       label: 'exported_template set'
+      base_css: css/base.css
+      stylecatcher_libraries:
+        flowerily:
+          url: '{{support}}theme_static/flowerily/style_library/flowerily.html'
+          label: Flowerily Styles
+          description_label: Colour variations for Flowerily.
+          order: 1
       templates:
         archive:
           category_listing:
@@ -40,6 +47,10 @@ elements:
               monthly:
                 archive_type: Monthly
         index:
+          styles:
+            label: 'CSS'
+            outfile: screen.css
+            rebuild_me: 1
           feed_recent:
             label: 'Feed - Recent Entries'
             outfile: atom.xml
