@@ -1,0 +1,27 @@
+<$mt:Var name="main-index" value="1"$>
+<$mt:Include module="Header" blog_id="$website_id"$>
+
+			<div id="content">
+				<h2><mt:ArchiveTitle></h2>
+                <div>
+                    <mt:Entries>
+                        <mt:EntriesHeader>
+                            <dl class="entry-list">
+                        </mt:EntriesHeader>
+                        	<mt:Include module="Entry Mini" blog_id="$website_id"$>
+                        <mt:EntriesFooter>
+                            </dl>
+                        </mt:EntriesFooter>
+                    </mt:Entries>
+                </div>
+			</div>
+			<!-- end #content -->
+			<div id="sidebar">
+            	<ul>
+					<$mt:WidgetSet name="Blog Sidebar"$>
+                </ul>
+			</div>
+			<!-- end #sidebar -->
+			<div style="clear: both;">&nbsp;</div>
+
+<$mt:Include module="Footer" blog_id="$website_id"$>

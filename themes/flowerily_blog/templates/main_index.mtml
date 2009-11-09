@@ -1,0 +1,39 @@
+<$mt:Var name="main-index" value="1"$>
+<mt:SetVarBlock name="html-head">
+    <link href="<$MTStaticWebPath$>themes/flowerily/assets/css/actions.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="<$MTStaticWebPath$>plugins/ActionStreams/css/action-streams.css" rel="stylesheet" type="text/css" media="screen" />
+</mt:SetVarBlock>
+<$mt:Include module="Header"$>
+
+			<div id="content">
+                <div>
+                    <mt:Entries lastn="1" unique="1" tag="@featured">
+                    	<div class="featured-post">
+                        	<h2 class="featured">Featured Post</h2>
+	                        <$mt:Include module="Entry Summary" blog_id="$website_id"$>
+                        </div>
+                    </mt:Entries>
+                    <mt:Entries lastn="2" unique="1">
+                        <$mt:Include module="Entry Summary" blog_id="$website_id"$>
+                    </mt:Entries>
+                    <mt:Entries lastn="5" unique="1">
+                        <mt:EntriesHeader>
+                            <dl class="entry-list">
+                        </mt:EntriesHeader>
+                        	<mt:Include module="Entry Mini" blog_id="$website_id"$>
+                        <mt:EntriesFooter>
+                            </dl>
+                        </mt:EntriesFooter>
+                    </mt:Entries>
+                </div>
+			</div>
+			<!-- end #content -->
+			<div id="sidebar">
+            	<ul>
+					<$mt:WidgetSet name="Blog Sidebar"$>
+                </ul>
+			</div>
+			<!-- end #sidebar -->
+			<div style="clear: both;">&nbsp;</div>
+
+<$mt:Include module="Footer"$>

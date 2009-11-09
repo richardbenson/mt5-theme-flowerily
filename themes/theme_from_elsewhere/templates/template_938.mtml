@@ -1,0 +1,25 @@
+ <mt:pageiftagged>
+   <mt:setvarblock name="curpage"><mt:pageid /></mt:setvarblock>
+   <mt:setvarblock name="relatedtags"><mt:pagetags glue=" OR "><mt:tagname /></mt:pagetags></mt:setvarblock>
+   <mt:setvarblock name="listitems">
+     <mt:entries tags="$relatedtags" unique="1">
+         <mt:setvarblock name="listentry"><mt:entryid /></mt:setvarblock>
+         <mt:unless name="listentry" eq="$curentry">
+            <li class="widget-list-item">
+                <h4><a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a></h4>
+                <p><mt:EntryBody words="25" convert_breaks="0" />...</p>
+            </li>
+         </mt:unless>
+      </mt:entries>
+   </mt:setvarblock>
+   <mt:if name="listitems">
+<div class="widget-recent-entries widget-archives widget">
+    <h3 class="widget-header">Related Entries</h3>
+    <div class="widget-content">
+        <ul class="widget-list">
+         <mt:var name="listitems">
+        </ul>
+    </div>
+</div>
+   </mt:if>
+</mt:pageiftagged>

@@ -1,0 +1,9 @@
+<li>
+<h2>Subscriptions</h2>
+<ul class="subscription-list">
+	<li><a href="<mt:BlogParentWebsite><MT:Link template="feed_recent"></mt:BlogParentWebsite>">Subscribe to this website</a></li>
+	<mt:if var="currentblog" ne="$website_id">
+	<li><a href="<MT:Link template="feed_recent">">Subscribe to this blog</a></li>
+	</mt:if>
+</ul>
+</li>

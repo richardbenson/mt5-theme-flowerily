@@ -1,0 +1,121 @@
+<mt:var name="elsewhere" value="1" />
+<mt:setvar name="mt_author_display_name" value="Richard">
+<mt:setvar name="author_short_name" value="Richard">
+<mt:setvar name="past_days" value="14">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head"$>
+    <title><$MTBlogName encode_html="1"$>: Elsewhere: Links</title>
+</head>
+<body class="yui-skin-sam">
+
+<noscript>
+<div id="overlay" style="background-color: #fff">
+        Please, for the love of god, it's 2009, turn your javascript on!
+    </div>
+</noscript>
+
+<div id="doc4" class="yui-t5 main-index">
+    <div id="hd">
+    <$mt:include module="Banner Header"$>
+    </div>
+    <div id="bd">
+        <div id="yui-main">
+            <div class="yui-b">
+
+            <h1 id="page-title" class="archive-title">Links</h1>
+                <div class="action-stream hfeed">
+                
+                <mt:setvarblock name="today_date"><mt:date format="%B %e"></mt:setvarblock>
+                <mt:setvarblock name="name_regex">/<mt:var name="mt_author_display_name">/</mt:setvarblock>
+                
+                <mt:ActionStreams display_name="$mt_author_display_name" lastn="9999999">
+                
+                    <mt:setvarblock name="stream_service"><mt:var name="service_type"></mt:setvarblock>
+                    <mt:setvarblock name="thumb_url"><mt:StreamActionThumbnailURL></mt:setvarblock>
+                    <mt:setvarblock name="stream_title"></mt:setvarblock>
+                    <mt:setvarblock name="stream_description"></mt:setvarblock>
+                    <mt:setvarblock name="entry_id"></mt:setvarblock>
+                
+                
+                    <mt:if name="service_type" eq="googlereader">
+                        <mt:setvarblock name="stream_description"><$MTStreamActionVar name="note"$></mt:setvarblock>
+                    <mt:elseif name="service_type" eq="delicious">
+                        <mt:setvarblock name="stream_description"><$MTStreamActionVar name="note"$></mt:setvarblock>
+                    </mt:if>
+                
+                    <mt:DateHeader>
+                
+                        <mt:setvarblock name="linkslist"></mt:setvarblock>
+                
+                    </mt:DateHeader>
+                 
+                            <mt:if name="stream_type" like="links">
+                
+                            <mt:setvarblock name="linkslist">
+                <mt:var name="linkslist"> 
+                               <li class="hentry service-icon service-<mt:var name="service_type">">
+                            
+                            <span class="stream-meta">@ <mt:StreamActionDate format="%H:%M"></span> 
+                            <mt:StreamAction regex_replace="$name_regex","">
+                            <div class="stream-extra-description">
+                                <mt:if name="thumb_url">
+                                    <div class="stream-extra-thumbnail">
+                                        <a href="<$MTStreamActionURL$>" target="_blank"><img src='<mt:var name='thumb_url'>' /></a>
+                                    </div>
+                                </mt:if>
+                                <mt:if name="stream_description">
+                                    <mt:if name="stream_title">
+                                        <h3><mt:var name='stream_title'></h3>
+                                        <br />
+                                    </mt:if>
+                                    <h5><mt:var name='stream_description'></h5>
+                                </mt:if>
+                            </div>
+                            
+                        </li>
+                                
+                            </mt:setvarblock>
+                  
+                        </mt:if>
+                
+                        <mt:datefooter>
+                        <mt:if name="linkslist">
+                        <div class="action-stream-day">
+                        <mt:setvarblock name="this_date"><mt:StreamActionDate format="<span class='day'>%e</span> %b<br />%Y"></mt:setvarblock>
+                        <div class="action-stream-header asset-name">
+                            <mt:var name="this_date">
+                        </div>
+                        <ul class="action-stream-list">
+                  
+                 
+                            <mt:var name="linkslist">
+                
+                
+                        </ul>
+                        </div>
+                        </mt:if>
+                
+                
+                        </mt:datefooter>
+                
+                </mt:ActionStreams>
+                </div>
+                            
+            </div><!-- yui-b -->
+        </div><!-- yui-main -->
+        <div class="yui-b">
+        <$MTInclude module="Sidebar"$>
+        </div>
+    </div>
+    <div id="ft">
+    <$mt:include module="Banner Footer"$>
+    </div>
+</div>
+
+<$mt:include module="Google Analytics"$>
+</body>
+</html>

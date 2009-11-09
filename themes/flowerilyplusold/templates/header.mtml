@@ -1,0 +1,52 @@
+<$mt:WebsiteID setvar="website_id"$>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<$mt:PublishCharset$>" />
+    <meta name="generator" content="<$mt:ProductName version="1"$>" />
+    <link rel="stylesheet" href="<$mt:Link template="styles"$>" type="text/css" />
+    <link rel="start" href="<$mt:WebsiteURL$>" title="Home" />
+    <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="<$mt:Link template="feed_recent"$>" />
+    <script type="text/javascript" src="<$mt:Link template="javascript"$>"></script>
+    <$mt:Var name="html_head"$>
+    <script type="text/javascript">
+    var adminurl = '<$mt:CGIPath$>' + '<$mt:AdminScript$>';
+    var blog_id = '<$mt:WebsiteID$>';
+    var page_id = '<mt:IfArchiveType archive_type="Page"><$mt:PageID$><mt:Else><mt:Pages tag="@home"><$mt:PageID$></mt:Pages></mt:IfArchiveType>';
+    </script>
+    <$mt:CCLicenseRDF$>
+    <title><$mt:Var name="title"$></title>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="<$mt:Var name="body_class"$> <$mt:Var name="page_layout"$>">
+    <div id="container">
+        <div id="container-inner">
+            <div id="header">
+                <div id="header-inner">
+                    <div id="header-content">
+<mt:If name="main_index">
+                        <h1 id="header-name"><a href="<$mt:WebsiteURL$>" accesskey="1"><$mt:WebsiteLabel encode_html="1"$></a></h1>
+                        <h2 id="header-description"><$mt:WebsiteDescription$></h2>
+<mt:Else>
+                        <div id="header-name"><a href="<$mt:WebsiteURL$>" accesskey="1"><$mt:WebsiteLabel encode_html="1"$></a></div>
+                        <div id="header-description"><$mt:WebsiteDescription$></div>
+</mt:If>
+                        <$mt:Include widget="Sign In" $>
+                    </div>
+                </div>
+            </div>
+            <div id="main-navigation">
+                <div id="main-navigation-inner">
+                    <$mt:Include module="Navigation" $>
+                    <$mt:Include widget="Search" $>
+                </div>
+            </div>
+            <div id="content">
+                <div id="content-inner">
+<mt:If name="main_index">
+                    <div id="homepage-image">&nbsp;</div>
+</mt:If>
+                    <div id="alpha">
+                        <div id="alpha-inner">
+

@@ -1,0 +1,15 @@
+<mt:Entryiftagged>
+    <mt:setvarblock name="relatedtags"><mt:Entrytags glue=" OR "><mt:tagname /></mt:Entrytags></mt:setvarblock>
+    <h2 class="title">Related Entries</h2>
+    <li>
+    <mt:Entries tags="$relatedtags" unique="1" include_blogs="site">
+        <mt:EntriesHeader>
+            <dl class="entry-list">
+        </mt:EntriesHeader>
+            <mt:Include module="Entry Mini" blog_id="$website_id"$>
+        <mt:EntriesFooter>
+            </dl>
+        </mt:EntriesFooter>
+    </mt:Entries>
+    </li>
+</mt:Entryiftagged>

@@ -1,0 +1,18 @@
+<div id="page-<$mt:PageID$>" class="page-asset asset">
+    <div class="asset-header">
+        <h1 id="page-title" class="asset-name"><$mt:PageTitle$></h1>
+    </div>
+    <div class="asset-content">
+<mt:If tag="PageBody">
+        <div class="asset-body">
+            <$mt:PageBody$>
+        </div>
+</mt:If>
+<mt:If tag="PageMore" convert_breaks="0">
+        <div id="more" class="asset-more">
+            <$mt:PageMore$>
+        </div>
+</mt:If>
+    </div>
+    <div class="asset-footer"></div>
+</div>

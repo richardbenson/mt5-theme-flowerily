@@ -1,0 +1,98 @@
+<mt:SetVarBlock name="html-head">
+	<script type="text/javascript" src="<$MTStaticWebPath$>themes/flowerily/js/auth.js"></script>
+	<link href="<$MTStaticWebPath$>themes/flowerily/css/system.css" rel="stylesheet" type="text/css" media="screen" />
+</mt:SetVarBlock>
+<$mt:Include module="Header"$>
+
+<div id="content">
+
+<mt:if name="auth_loop">
+	<mtapp:setting
+		id="comment-signin-options"
+		label="<__trans phrase="Sign in using">......">
+		<div id="auth-options">
+			<ul>
+				<li id="auth-select-<mt:var name="default_id" escape="html">" class="selected"><a href="javascript:showAuth('<mt:var name="default_id" escape="html">');"><img src="<$mt:Var name="static_uri"$>images/comment/signin_mt.png" width="36" height="26" border="0" alt="" /><mt:var name="default_signin" escape="html"></a></li>
+			<mt:loop name="auth_loop">
+				<li id="auth-select-<mt:var name="id" escape="html">"><a href="javascript:showAuth('<mt:var name="id" escape="html">');"><mt:If name="logo"><img src="<$mt:Var name="static_uri"$><$mt:Var name="logo"$>" width="36" height="26" border="0" alt="" /></mt:If><mt:var name="name" escape="html"></a></li>
+			</mt:loop>
+			</ul>
+		</div>
+	</mtapp:setting>
+</mt:if>
+
+<mt:if name="message">
+    <mtapp:statusmsg
+        id="message"
+        class="alert">
+        <mt:var name="message">
+    </mtapp:statusmsg>
+</mt:if>
+<mt:if name="error">
+    <mtapp:statusmsg
+        id="error"
+        class="error">
+        <mt:var name="error">
+    </mtapp:statusmsg>
+</mt:if>
+
+<div id="auth-types">
+<mt:if name="enabled_MovableType">
+<div id="auth-form-<mt:var name="default_id" escape="html">"<mt:unless name="enabled_MovableType"> style="display: none"</mt:unless>>
+    <form method="post" action="<mt:var name="script_url">">
+        <input type="hidden" name="__mode" value="do_login" />
+        <input type="hidden" name="blog_id" value="<mt:var name="blog_id" escape="html">" />
+        <input type="hidden" name="entry_id" value="<mt:var name="entry_id" escape="html">" />
+        <input type="hidden" name="static" value="<mt:var name="static" escape="html">" />
+        <input type="hidden" name="return_url" value="<mt:var name="return_url" escape="html">" />
+    <mt:unless name="auth_mode_mt">
+        <input type="hidden" name="external_auth" value="1" />
+    </mt:unless>
+
+        <mtapp:setting
+            id="username"
+            label="Username"
+            label_class="top-label">
+            <input type="text" name="username" id="username" />
+        </mtapp:setting>
+
+        <mtapp:setting
+            id="password"
+            label="Password">
+           <input type="password" name="password" id="password" />
+        </mtapp:setting>
+
+        <p><label>Remember me? <input type="checkbox" name="remember" value="1" class="cb" accesskey="r" /></label></p>
+
+        <div class="actions-bar actions-bar-bottom">
+            <button
+               type="submit"
+               accesskey="s"
+               class="sign-in action primary-button"
+               >Sign in</button>
+    <mt:if name="can_recover_password">
+               <p id="forget-password"><a href="<mt:var name="script_url">?__mode=start_recover<mt:if name="return_url">&return_to=<mt:var name="return_url" escape="url"></mt:if>">Forgot your password?</a></p>
+    </mt:if>
+        </div>
+    <mt:if name="registration_allowed">
+        <p id="sign-up">Not a member? <a href="<mt:var name="script_url">?__mode=signup&amp;blog_id=<mt:var name="blog_id">&amp;entry_id=<mt:var name="entry_id" escape="js"><mt:if name="static">&amp;static=<mt:var name="static" escape="url"></mt:if><mt:if name="return_url">&amp;return_url=<mt:var name="return_url" escape="url"></mt:if>">Sign Up</a>!</p>
+    </mt:if>
+    </form>
+</div>
+</mt:if>
+
+<mt:if name="auth_loop">
+<mt:loop name="auth_loop">
+<div id="auth-form-<mt:var name="id" escape="html">"<mt:if name="name" ne="$default_signin"> style="display: none"</mt:if>>
+    <mt:var name="login_form">
+</div>
+</mt:loop>
+</dl>
+</mt:if>
+</div>
+
+</div>
+
+<div style="clear: both;">&nbsp;</div>
+
+<$mt:Include module="Footer"$>​

@@ -1,0 +1,9 @@
+<dt><a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a><mt:if var="currentblog" eq="$website_id"> in <a href="<$MT:BlogURL$>"><$mt:BlogName$></a></mt:if></dt>
+<dd><p><$mt:EntryBody words="50" convert_breaks="1" $>&hellip;</p></dd>
+<dd class="entry-meta">
+	By <mt:If tag="EntryAuthorDisplayName"><$mt:EntryAuthorDisplayName encode_html="1"$><mt:Else><$mt:EntryAuthorUsername encode_html="1"$></mt:If> | Comments (<$mt:EntryCommentCount$>) |
+    <MTIfNonEmpty tag="EntryCategory">Filed in <MTEntryCategories glue=', '><a href="<$MTCategoryArchiveLink$>" rel="tag"><$MTCategoryLabel$></a></MTEntryCategories></MTIfNonEmpty>
+    <MTEntryIfTagged><MTIfNonEmpty tag="EntryCategory">and tagged <mt:Else>Tagged </MTIfNonEmpty>
+            <MTEntryTags glue=', '><a href="<$mt:CGIPath$><$mt:SearchScript$>?blog_id=<mt:BlogID>&amp;tag=<$MTTagName encode_js="1"$>&amp;limit=20" rel="tag"><$MTTagName$></a></MTEntryTags>
+    </MTEntryIfTagged>
+</dd>

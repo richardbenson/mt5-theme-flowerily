@@ -1,0 +1,34 @@
+#content #comment-signin-options-field {
+	float: left;
+	margin-right: 10px;
+	border-right: 2px solid #ccc;
+}
+
+#content #comment-signin-options-field ul {
+	padding: 0;
+}
+
+#content #comment-signin-options-field ul li {
+	list-style-type: none;
+}
+
+#content #comment-signin-options-field ul li a {
+	text-decoration: none;
+	padding: 2px;
+	display: block;
+	border-bottom: 1px dotted #ccc;
+}
+
+#content #comment-signin-options-field ul li a img {
+	vertical-align: top;
+}
+
+#content #comment-signin-options-field ul li.selected a {
+	background-color: #ccc;
+}
+
+.field-content input {
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+}

@@ -1,0 +1,22 @@
+<mt:if name="main-index">
+	<$mt:WidgetSet name="Main Sidebar"$>
+</mt:if>
+
+<mt:if name="archive-index">
+	<$mt:WidgetSet name="Archive Sidebar"$>
+</mt:if>
+
+<mt:if name="elsewhere">
+	<$mt:WidgetSet name="Elsewhere Sidebar"$>
+</mt:if>
+
+<mt:IfArchiveType type="page">
+	<$mt:WidgetSet name="Page Sidebar"$>
+</mt:IfArchiveType>
+    
+    <mt:Ignore>All pages should display the "Recent Comments" widget except Entry Archive Templates, which should display the "Recent Entries" widget.</mt:Ignore>
+    <mt:IfArchiveType type="individual">
+        <$mt:include module="Recent Entries"$>
+        <mt:Else>
+        <$mt:include module="Recent Comments"$>
+    </mt:IfArchiveType>

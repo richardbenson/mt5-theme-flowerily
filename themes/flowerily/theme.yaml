@@ -1,0 +1,135 @@
+---
+id: flowerily
+label: Flowerily
+name: Flowerily
+version: 0.1
+author_link: http://www.richardbenson.co.uk
+author_name: 'Richard Benson'
+class: website
+description: 'An aggregating website for multiple blogs, and folders.'
+thumbnail_file: thumb.png
+thumbnail_file_medium: thumb-medium.png
+thumbnail_file_small: thumb-small.png
+elements:
+  custom_fields:
+    component: commercial
+    data:
+      customjs:
+        default: ''
+        description: 'Additional JavaScript for the page.'
+        name: CustomJS
+        obj_type: page
+        options: ~
+        required: 0
+        tag: pagedatacustomjs
+        type: textarea
+    importer: custom_fields
+  default_folders:
+    component: ~
+    data:
+      about:
+        label: About
+      contact:
+        label: Contact
+    importer: default_folders
+  template_set:
+    component: ~
+    importer: template_set
+    data:
+      base_path: templates
+      label: 'exported_template set'
+      templates:
+        index:
+          feed_recent:
+            label: 'Feed - Recent Entries'
+            outfile: atom.xml
+            rebuild_me: 1
+          legacy_javascript:
+            label: 'Legacy JavaScript'
+            outfile: assets/js/mt.legacy.js
+            rebuild_me: 1
+          main_index:
+            label: 'Site Home'
+            outfile: index.html
+            rebuild_me: 1
+          rsd:
+            label: RSD
+            outfile: rsd.xml
+            rebuild_me: 1
+          styles:
+            label: 'CSS'
+            outfile: assets/css/screen.css
+            rebuild_me: 1
+        module:
+          entry_metadata:
+            label: 'Entry Metadata'
+          entry_summary:
+            label: 'Entry Summary'
+          tags:
+            label: Tags
+          google_analytics:
+            label: 'Google Analytics'
+          header:
+            label: Header
+          footer:
+            label: Footer
+          html_head:
+            label: 'HTML Head'
+          entry_mini:
+            label: 'Entry Mini'
+          trackbacks:
+            label: Trackbacks
+          comments:
+            label: Comments
+          individual_comment:
+            label: 'Individual Comment'
+        page:
+          page:
+            label: Page
+            mappings:
+              page:
+                archive_type: Page
+                file_template: '%-c/%-f'
+                preferred: 1
+        system:
+          comment_listing:
+            label: 'Comment Listing'
+          comment_preview:
+            label: 'Comment Preview'
+          comment_response:
+            label: 'Comment Response'
+          dynamic_error:
+            label: 'Dynamic Error'
+          popup_image:
+            label: 'Popup Image'
+          search_results:
+            label: 'Search Results'
+          login_form:
+            label: 'Login Form'
+        widget:
+          tag_cloud:
+            label: 'Tag Cloud'
+          powered_by:
+            label: 'Powered By'
+          copyright:
+            label: Copyright
+          related_entries:
+            label: 'Related Entries'
+          folder_pages:
+            label: 'Folder Pages'
+          sign_in:
+            label: 'Sign In'
+        widgetset:
+          page_sidebar:
+            label: 'Page Sidebar'
+            order: 1000
+            widgets:
+              - 'Sign In'
+              - 'Folder Pages'
+              - 'Related Entries'
+          entry_sidebar:
+            label: 'Entry Sidebar'
+            order: 1000
+            widgets:
+              - 'Related Entries'
+   

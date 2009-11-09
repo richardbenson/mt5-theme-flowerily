@@ -1,0 +1,47 @@
+<mt:SetVarBlock name="pagetitle"><$mt:EntryTitle$></mt:SetVarBlock>
+<$mt:Include module="Header"$>
+
+<div id="content">
+	<div class="post">            
+		<div class="entry">            
+			<h2 class="title"><a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a></h2>
+			<$mt:Include module="Entry Metadata" blog_id="$website_id"$>
+			<mt:If tag="EntryBody">
+				<div class="asset-body">
+					<$mt:EntryBody$>
+				</div>
+			</mt:If>
+			<mt:If tag="EntryMore">
+				<div id="more" class="asset-more">
+					<$mt:EntryMore$>
+				</div>
+			</mt:If>
+			<div>
+				<p><MTIfNonEmpty tag="EntryCategory">Filed in <MTEntryCategories glue=', '><a href="<$MTCategoryArchiveLink$>" rel="tag"><$MTCategoryLabel$></a></MTEntryCategories></MTIfNonEmpty>
+				<MTEntryIfTagged><MTIfNonEmpty tag="EntryCategory">and tagged <mt:Else>Tagged </MTIfNonEmpty>
+						<MTEntryTags glue=', '><a href="<$mt:CGIPath$><$mt:SearchScript$>?blog_id=<mt:BlogID>&tag=<$MTTagName encode_js="1"$>&limit=20" rel="tag"><$MTTagName$></a></MTEntryTags>
+				</MTEntryIfTagged>
+				</p>
+			</div>
+
+			<mt:If tag="EntryDataCustomjs">
+				<script type="text/javascript">
+				<mt:EntryDataCustomjs>
+				</script>
+			</mt:If>
+		 </div>
+	 </div>
+	<$mt:Include module="Trackbacks" blog_id="$website_id"$>
+	<$mt:Include module="Comments"$>
+</div>
+<!-- end #content -->
+<div id="sidebar">
+	<ul>
+		<$mt:WidgetSet name="Entry Sidebar"$>
+	</ul>
+</div>
+<!-- end #sidebar -->
+<div style="clear: both;">&nbsp;</div>
+
+
+<$mt:Include module="Footer"$>

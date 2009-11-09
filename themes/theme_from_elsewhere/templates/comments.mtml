@@ -1,0 +1,103 @@
+<mt:ignore>
+<!-- Display comments for the entry/page or commenting form if entry/page is accepting comments -->
+</mt:ignore>
+<MTIfCommentsActive>
+<div id="comments" class="comments">
+
+    <mt:ignore>
+    <!-- Display comments -->
+    </mt:ignore>
+    <div id="comments-list">
+    <MTComments>
+        <MTCommentsHeader>
+    <h2 class="comments-header"><$MTEntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments"$></h2>
+    <div class="comments-content">
+        </MTCommentsHeader>
+        <mt:IfCommentParent> <!-- If comment has a parent comment. We ignore this, as we just want the top-level-parent comments -->
+            <mt:Else> <!-- If comment doesn't have a top-level-parent -->
+                <mt:Include module="Individual Comment">
+            <mt:CommentReplies> <!-- Loop through the reply comments -->
+                <mt:CommentsHeader>
+                <div style="margin-left: 20px;">
+                </mt:CommentsHeader>
+                <mt:Include module="Individual Comment">
+                <$mt:CommentRepliesRecurse$> <!-- For each reply comment, recursively display any reply comments -->    
+                <mt:CommentsFooter>
+                </div>
+                </mt:CommentsFooter>
+            </mt:CommentReplies>
+        </mt:IfCommentParent>
+        <MTCommentsFooter>
+    </div>
+        </MTCommentsFooter>
+    </MTComments>
+    </div>
+
+    <mt:ignore>
+    <!-- Display commenting form if entry/page is accepting comments -->
+    </mt:ignore>
+    <MTIfCommentsAccepted>
+    <div class="comments-open" id="comments-open">
+        <h2 class="comments-open-header">Leave a comment</h2>
+        <div class="comments-open-content">
+
+        <mt:ignore>
+        <!-- Display greeting for users if blog allows users to register locally -->
+        </mt:ignore>
+            <div id="comment-greeting"></div>
+
+
+            <form method="post" action="<$MTCGIPath$><$MTCommentScript$>" name="comments_form" id="comments-form" onsubmit="return mtCommentOnSubmit(this)">
+                <div id="comments-form-inner">
+                <input type="hidden" id="comment-static" name="static" value="1" />
+                <input type="hidden" id="comment-entry_id" name="entry_id" value="<$MTEntryID$>" />
+                <input type="hidden" id="comment-lang" name="__lang" value="<$MTBlogLanguage$>" />
+                <input type="hidden" id="comment-parent-id" name="parent_id" value="<$MTCommentParentID$>" id="comment-parent-id" />
+                <input type="hidden" id="comment-armor" name="armor" value="1" />
+                <input type="hidden" id="comment-preview" name="preview" value="" />
+                <input type="hidden" id="comment-sid" name="sid" value="" />
+                <div id="comments-open-data">
+                    <div id="comment-form-name">
+                        <label for="comment-author">Name</label>
+                        <input id="comment-author" name="author" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    </div>
+                    <div id="comment-form-email">
+                        <label for="comment-email">Email Address</label>
+                        <input id="comment-email" name="email" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    </div>
+                    <div id="comment-form-url">
+                        <label for="comment-url">URL</label>
+                        <input id="comment-url" name="url" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    </div>
+                    <div id="comment-form-remember-me">
+                        <input type="checkbox" id="comment-bake-cookie" name="bakecookie" onclick="mtRememberMeOnClick(this)" value="1" accesskey="r" />
+                        <label for="comment-bake-cookie">Remember personal info?</label>
+                    </div>
+                </div>
+                <div id="comment-form-reply" style="display:none">
+                    <input type="checkbox" id="comment-reply" name="comment_reply" value="" onclick="mtSetCommentParentID()" />
+                    <label for="comment-reply" id="comment-reply-label"></label>
+                </div>
+                <div id="comments-open-text">
+                    <label for="comment-text" id="comment-text-label">Comments
+                    <MTIfAllowCommentHTML>(You may use HTML tags for style)</MTIfAllowCommentHTML></label>
+                    <textarea id="comment-text" name="text" rows="15" cols="50" onfocus="mtCommentFormOnFocus()"></textarea>
+                </div>
+                <div id="comments-open-captcha"></div>
+                <div id="comments-open-footer">
+                    <input type="submit" accesskey="v" name="preview_button" id="comment-preview" value="Preview" onclick="this.form.preview.value='1';" />
+                    <input type="submit" accesskey="s" name="post" id="comment-submit" value="Submit" />
+                </div>
+            </div>
+            </form>
+			<script type="text/javascript">
+				mtEntryOnLoad();
+			</script>
+
+        </div>
+    </div>
+    </MTIfCommentsAccepted>
+
+
+</div>
+</MTIfCommentsActive>

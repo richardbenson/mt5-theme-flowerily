@@ -1,0 +1,135 @@
+---
+id: flowerily_blog
+label: 'Flowerily - Blog'
+name: 'Flowerily - Blog'
+version: 0.1
+author_link: http://www.richardbenson.co.uk
+author_name: 'Richard Benson'
+class: blog
+description: 'Standard blog for the Flowerily theme.'
+thumbnail_file: thumb.png
+thumbnail_file_medium: thumb-medium.png
+thumbnail_file_small: thumb-small.png
+elements:
+  custom_fields:
+    component: commercial
+    data:
+      customjs:
+        default: ''
+        description: 'Additional JavaScript for the entry.'
+        name: CustomJS
+        obj_type: entry
+        options: ~
+        required: 0
+        tag: entrydatacustomjs
+        type: textarea
+    importer: custom_fields
+  template_set:
+    component: ~
+    importer: template_set
+    data:
+      base_path: templates
+      label: 'exported_template set'
+      templates:
+        archive:
+          category_listing:
+            label: 'Entry Listing'
+            mappings:
+              category:
+                archive_type: Category
+              monthly:
+                archive_type: Monthly
+        index:
+          feed_recent:
+            label: 'Feed - Recent Entries'
+            outfile: atom.xml
+            rebuild_me: 1
+          main_index:
+            label: 'Blog Index'
+            outfile: index.html
+            rebuild_me: 1
+          rsd:
+            label: RSD
+            outfile: rsd.xml
+            rebuild_me: 1
+        module:
+          header:
+            label: Header
+          footer:
+            label: Footer
+          html_head:
+            label: 'HTML Head'
+          comments:
+            label: Comments
+          individual_comment:
+            label: 'Individual Comment'
+        individual:
+          entry:
+            label: Entry
+            mappings:
+              entry_archive:
+                archive_type: Individual
+        page:
+          page:
+            label: Page
+            mappings:
+              page:
+                archive_type: Page
+                file_template: '%-c/%-f'
+                preferred: 1
+        system:
+          comment_listing:
+            label: 'Comment Listing'
+          comment_preview:
+            label: 'Comment Preview'
+          comment_response:
+            label: 'Comment Response'
+          dynamic_error:
+            label: 'Dynamic Error'
+          popup_image:
+            label: 'Popup Image'
+          search_results:
+            label: 'Search Results'
+          login_form:
+            label: 'Login Form'
+        widget:
+          tag_cloud:
+            label: 'Tag Cloud'
+          powered_by:
+            label: 'Powered By'
+          copyright:
+            label: Copyright
+          related_entries:
+            label: 'Related Entries'
+          folder_pages:
+            label: 'Folder Pages'
+          sign_in:
+            label: 'Sign In'
+          subscriptions:
+            label: 'Subscriptions'
+          category_archives:
+            label: 'Category Archives'
+          monthly_archives:
+            label: 'Monthly Archives'
+        widgetset:
+          page_sidebar:
+            label: 'Page Sidebar'
+            order: 1000
+            widgets:
+              - 'Sign In'
+              - 'Folder Pages'
+              - 'Related Entries'
+          entry_sidebar:
+            label: 'Entry Sidebar'
+            order: 1001
+            widgets:
+              - 'Subscriptions'
+              - 'Related Entries'
+          blog_sidebar:
+            label: 'Blog Sidebar'
+            order: 1002
+            widgets:
+              - 'Subscriptions'
+              - 'Category Archives'
+              - 'Monthly Archives'
+    

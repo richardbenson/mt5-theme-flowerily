@@ -1,0 +1,17 @@
+<div id="beta">
+    <div id="beta-inner">
+<mt:If name="page_columns" eq="2">
+        <$mt:WidgetSet name="Main Sidebar"$>
+<mt:Else name="page_columns" eq="3">
+        <$mt:WidgetSet name="Blog Activity"$>
+</mt:If>
+    </div>
+</div>
+<mt:If name="page_columns" eq="3">
+<div id="gamma">
+    <div id="gamma-inner">
+        <$mt:WidgetSet name="Blog Archives"$>
+    </div>
+</div>
+</mt:If>
+

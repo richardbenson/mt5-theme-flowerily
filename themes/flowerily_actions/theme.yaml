@@ -1,0 +1,65 @@
+---
+id: flowerily_actions
+label: 'Flowerily - Action Streams'
+name: 'Flowerily - Action Streams'
+version: 0.1
+author_link: http://www.richardbenson.co.uk
+author_name: 'Richard Benson'
+class: blog
+description: 'An Action Streams blog, not designed to contain any entries itself, just to house your aggregated activity elsewhere on the web.'
+thumbnail_file: thumb.png
+thumbnail_file_medium: thumb-medium.png
+thumbnail_file_small: thumb-small.png
+elements:
+  template_set:
+    component: ~
+    importer: template_set
+    data:
+      base_path: templates
+      label: 'exported_template set'
+      templates:
+        index:
+          main_index:
+            label: 'Elsewhere Home'
+            outfile: index.html
+            rebuild_me: 1
+          status_index:
+            label: 'Status'
+            outfile: status.html
+            rebuild_me: 1
+          photo_index:
+            label: 'Photos'
+            outfile: photos.html
+            rebuild_me: 1
+          videos_index:
+            label: 'Videos'
+            outfile: videos.html
+            rebuild_me: 1
+          links_index:
+            label: 'Links'
+            outfile: links.html
+            rebuild_me: 1
+          all_index:
+            label: 'All'
+            outfile: all.html
+            rebuild_me: 1
+        module:
+          header:
+            label: Header
+          footer:
+            label: Footer
+          html_head:
+            label: 'HTML Head'
+        widget:
+          categories:
+            label: 'Categories'
+          other_profiles:
+            label: 'Other Profiles'
+        widgetset:
+          elsewhere_sidebar:
+            label: 'Elsewhere Sidebar'
+            order: 1000
+            widgets:
+              - 'Categories'
+              - 'Other Profiles'
+    

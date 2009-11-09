@@ -1,0 +1,15 @@
+body.green {
+	background: url(../images/header-bg-green.jpg) repeat-x left top;
+}
+
+.green a {
+	color: #004721;
+}
+
+.green #menu a:hover { 
+	background: #121f05;
+}
+
+.green #menu .current_page_item a {
+	background: #121f05;
+}

@@ -1,0 +1,15 @@
+body.blue {
+	background: url(../images/header-bg-blue.jpg) repeat-x left top;
+}
+
+.blue a {
+	color: #083A84;
+}
+
+.blue #menu a:hover { 
+	background: #001027;
+}
+
+.blue #menu .current_page_item a {
+	background: #001027;
+}

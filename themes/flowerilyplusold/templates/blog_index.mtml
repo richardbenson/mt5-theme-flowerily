@@ -1,0 +1,11 @@
+<$mt:Var name="page_layout" value="layout-wtt"$>
+<mt:SetVarBlock name="title"><$mt:BlogName encode_html="1"$></mt:SetVarBlock>
+
+<$mt:Include module="Header" body_class="mt-main-index"$>
+
+<mt:Entries include_blogs="site">
+    <$mt:Include module="Entry Summary"$>
+</mt:Entries>
+
+<$mt:Include module="Footer"$>
+

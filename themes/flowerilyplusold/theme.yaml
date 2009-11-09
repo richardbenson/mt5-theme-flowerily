@@ -1,0 +1,218 @@
+---
+author_link: http://www.richardbenson.co.uk
+author_name: 'Richard Benson'
+class: website
+description: ''
+elements:
+  custom_fields:
+    component: commercial
+    data:
+      customjs:
+        default: ''
+        description: ''
+        name: CustomJS
+        obj_type: page
+        options: ~
+        required: 0
+        tag: pagedatacustomjs
+        type: textarea
+    importer: custom_fields
+  default_folders:
+    component: ~
+    data:
+      about:
+        label: About
+      contact:
+        label: Contact
+    importer: default_folders
+  template_set:
+    component: ~
+    data:
+      base_path: templates
+      label: 'exported_template set'
+      templates:
+        index:
+          blog_index:
+            label: 'zzBlog Index'
+            outfile: blog/index.html
+            rebuild_me: 0
+          feed_recent:
+            label: 'Feed - Recent Entries'
+            outfile: atom.xml
+            rebuild_me: 1
+          javascript:
+            label: 'Legacy JavaScript'
+            outfile: assets/js/legacy.js
+            rebuild_me: 1
+          main_index:
+            label: 'Site Home'
+            outfile: index.html
+            rebuild_me: 1
+          rsd:
+            label: RSD
+            outfile: rsd.xml
+            rebuild_me: 1
+          styles:
+            label: 'Actions RSS'
+            outfile: assets/css/actions.css
+            rebuild_me: 1
+          template_1547:
+            label: 'zzBlogs CSS'
+            outfile: assets/css/blogs.css
+            rebuild_me: 0
+          template_1824:
+            label: 'zzTheme JavaScript'
+            outfile: assets/js/main.js
+            rebuild_me: 0
+          template_1825:
+            label: 'zzMain CSS'
+            outfile: assets/css/main.css
+            rebuild_me: 0
+        module:
+          categories:
+            label: zzCategories
+          comment_detail:
+            label: 'zzComment Detail'
+          comment_form:
+            label: 'zzComment Form'
+          comments:
+            label: zzComments
+          entry_metadata:
+            label: 'Entry Metadata'
+          entry_summary:
+            label: 'Entry Summary'
+          footer:
+            label: 'zzOLD Footer'
+          header:
+            label: 'zzOLD Header'
+          navigation:
+            label: zzNavigation
+          page_detail:
+            label: 'zzPage Detail'
+          sidebar:
+            label: zzSidebar
+          tags:
+            label: Tags
+          template_1819:
+            label: 'zzHTML Head'
+          template_1820:
+            label: 'zzBanner Header'
+          template_1821:
+            label: 'zzBanner Footer'
+          template_1822:
+            label: 'Google Analytics'
+          template_1823:
+            label: 'zzNavigation Menu'
+          template_1826:
+            label: 'zzRelated Entries'
+          template_1828:
+            label: Header
+          template_1829:
+            label: Footer
+          template_1830:
+            label: 'HTML Head'
+          template_1872:
+            label: 'Entry Mini'
+          template_1929:
+            label: Trackbacks
+          template_1930:
+            label: Comments
+          template_1935:
+            label: 'Individual Comment'
+          trackbacks:
+            label: zzTrackBacks
+        page:
+          page:
+            label: zzPage
+            mappings:
+              page:
+                archive_type: Page
+                file_template: '%-c/%-f'
+                preferred: 0
+          template_1927:
+            label: Page
+            mappings:
+              page:
+                archive_type: Page
+                file_template: '%-c/%-f'
+                preferred: 1
+        system:
+          comment_listing:
+            label: 'Comment Listing'
+          comment_preview:
+            label: 'Comment Preview'
+          comment_response:
+            label: 'Comment Response'
+          dynamic_error:
+            label: 'Dynamic Error'
+          popup_image:
+            label: 'Popup Image'
+          search_results:
+            label: 'Search Results'
+          login_form:
+            label: 'Login Form'
+        widget:
+          blogs:
+            label: zzBlogs
+          footer_links:
+            label: 'zzFooter Links'
+          openid:
+            label: 'zzOpenID Accepted'
+          powered_by_footer:
+            label: 'zzPowered By (Footer)'
+          recent_assets:
+            label: 'zzRecent Assets'
+          recent_comments:
+            label: 'zzRecent Comments'
+          recent_entries_expanded:
+            label: 'zzRecent Entries Expanded'
+          search:
+            label: zzSearch
+          signin:
+            label: 'zzSign In'
+          tag_cloud:
+            label: 'zzTag Cloud'
+          template_1924:
+            label: 'Tag Cloud'
+          template_1925:
+            label: 'Powered By'
+          template_1926:
+            label: Copyright
+          template_1928:
+            label: 'Related Entries'
+          template_1931:
+            label: 'Folder Pages'
+          template_1934:
+            label: 'Sign In'
+        widgetset:
+          blog_activity:
+            label: 'zzBlog Activity'
+            order: 1000
+            widgets:
+              - 'zzRecent Comments'
+              - 'zzRecent Assets'
+              - 'zzTag Cloud'
+              - 'zzOpenID Accepted'
+          blog_archives:
+            label: 'zzBlog Archives'
+            order: 1000
+            widgets:
+              - zzBlogs
+          main_sidebar:
+            label: 'zzMain Sidebar'
+            order: 1000
+            widgets:
+              - zzBlogs
+              - 'zzRecent Entries Expanded'
+          template_1933:
+            label: 'Page Sidebar'
+            order: 1000
+            widgets:
+              - 'Sign In'
+              - 'Folder Pages'
+              - 'Related Entries'
+    importer: template_set
+id: flowerilyplusold
+label: 'Flowerily plus Old'
+name: 'Flowerily plus Old'
+version: 0.1

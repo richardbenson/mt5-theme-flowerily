@@ -1,0 +1,59 @@
+<$mt:Var name="main-index" value="1"$>
+<mt:SetVarBlock name="html-head">
+    <link href="<$MTStaticWebPath$>themes/flowerily/css/actions.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="<$MTStaticWebPath$>plugins/ActionStreams/css/action-streams.css" rel="stylesheet" type="text/css" media="screen" />
+</mt:SetVarBlock>
+<$mt:Include module="Header"$>
+
+			<div id="content">
+                <div>
+                    <mt:Entries lastn="1" unique="1" include_blogs="site" tag="@featured">
+                    	<div class="featured-post">
+                        	<h2 class="featured">Featured Post</h2>
+	                        <$mt:Include module="Entry Summary" blog_id="$website_id"$>
+                        </div>
+                    </mt:Entries>
+                    <mt:Entries lastn="2" unique="1" include_blogs="site">
+                        <$mt:Include module="Entry Summary" blog_id="$website_id"$>
+                    </mt:Entries>
+                    <mt:Entries lastn="5" unique="1" include_blogs="site">
+                        <mt:EntriesHeader>
+                            <dl class="entry-list">
+                        </mt:EntriesHeader>
+                        	<mt:Include module="Entry Mini" blog_id="$website_id"$>
+                        <mt:EntriesFooter>
+                            </dl>
+                        </mt:EntriesFooter>
+                    </mt:Entries>
+                </div>
+			</div>
+			<!-- end #content -->
+			<div id="sidebar">
+            	<ul>
+                	<li>
+                        <mt:setvar name="past_events" value="50">
+                        
+                        <mt:setvarblock name="today_date"><mt:date format="%A"></mt:setvarblock>
+                        <mt:ActionStreams lastn="$past_events">
+                            <mt:if name="__first__">
+                            <h2>Elsewhere</h2>
+                            </mt:if>
+                            <mt:setvarblock name="this_date"><mt:StreamActionDate format="%A"></mt:setvarblock>
+                            <mt:DateHeader>
+                                    <h3><mt:if var="this_date" eq="$today_date">Today<mt:else><mt:var name="this_date"></mt:if></h3>
+                                    <ul class="activity-stream-list">
+                            </mt:DateHeader>
+                                        <li class="hentry service-icon service-<mt:var name="service_type">">
+                                            <mt:StreamAction>
+                                        </li>
+                            <mt:DateFooter>
+                                    </ul>
+                            </mt:DateFooter>
+                        </mt:ActionStreams>
+                    </li>
+                </ul>
+			</div>
+			<!-- end #sidebar -->
+			<div style="clear: both;">&nbsp;</div>
+
+<$mt:Include module="Footer"$>
