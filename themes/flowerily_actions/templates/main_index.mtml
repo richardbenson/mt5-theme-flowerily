@@ -1,8 +1,27 @@
 <mt:SetVarBlock name="pagetitle">Action Stream</mt:SetVarBlock>
+<$mt:Var name="RBLibraries" value="'youtube' , 'ashome'"$>
 <$mt:Include module="Header"$>
 
 <div id="content">
-
+	<div id="action-stream-homepage">
+		
+		<div>
+			<h3 class="widget-header">Photostream</h3>
+			<div id="home-photos">
+				<ol id="photostream">
+					<mt:ActionStreams lastn="30" stream="photos">
+						<li>
+							<a href="<$MTStreamActionURL$>" target="_blank" title="<$MTStreamActionTitle$>" style="background-image: url(<mt:StreamActionThumbnailURL>);"></a>
+						</li>
+					</mt:ActionStreams>
+					<div class="clear"></div>
+				</ol>
+			</div>
+		</div>
+		
+		
+		
+	</div>
 </div>
 <!-- end #content -->
 <div id="sidebar">

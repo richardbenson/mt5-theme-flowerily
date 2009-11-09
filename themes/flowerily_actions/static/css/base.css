@@ -143,3 +143,26 @@
 .action-stream-list li {
 	background-position: 0px 5px;
 }
+
+/* Always be sure to give your carousel items a width and a height */
+.yui-carousel-element li {
+    width: 85px;
+    height: 85px;
+}
+
+.yui-carousel-element li a {
+    width: 75px;
+    height: 75px;
+	display: block;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 5px;
+}
+
+.yui-carousel-element li img {
+    margin: auto;
+}
+
+.yui-carousel-element .yui-carousel-item-selected {
+    border: 1px solid #CCCCCC !important;  /* Override selected item's dashed border so it feels more like a photo album */
+}
