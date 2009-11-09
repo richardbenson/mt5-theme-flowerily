@@ -1,0 +1,24 @@
+/*
+
+name: Flowerily (Red)
+designer: Richard Benson
+designer_url: http://www.richardbenson.co.uk/
+layouts: layout-w-t
+
+*/
+
+body {
+	background: url(header-bg-red.jpg) repeat-x left top;
+}
+
+a {
+	color: #842946;
+}
+
+#menu a:hover { 
+	background: #290004;
+}
+
+#menu .current_page_item a {
+	background: #290004;
+}

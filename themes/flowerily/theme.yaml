@@ -25,19 +25,42 @@ elements:
         type: textarea
     importer: custom_fields
   default_folders:
-    component: ~
+    name: Default Folders
+    importer: default_folders
+    component: core
     data:
       about:
         label: About
       contact:
         label: Contact
-    importer: default_folders
+  default_pages:
+    name: Default Pages
+    importer: default_pages
+    component: core
+    data:
+      about:
+        basename: index
+        title: About
+        text: 'Your about page'
+        folder: about
+      contact:
+        basename: index
+        title: Contact
+        text: 'Put your contact details here'
+        folder: contact
   template_set:
-    component: ~
+    component: core
     importer: template_set
     data:
       base_path: templates
-      label: 'exported_template set'
+      label: 'Flowerily'
+      base_css: css/base.css
+      stylecatcher_libraries:
+        flowerily:
+          url: '{{support}}theme_static/flowerily/style_library/flowerily.html'
+          label: Flowerily Styles
+          description_label: Colour variations for Flowerily.
+          order: 1
       templates:
         index:
           feed_recent:
