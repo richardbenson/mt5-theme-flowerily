@@ -14,20 +14,40 @@ RB.ashome = function() {
 		init: function() {
 			if (RB.Dom.inDocument('action-stream-homepage')) {
 				var photoLoader = new RB.Loader({
-					require: ['carousel', 'animation'],
+					require: ['carousel', 'animation', 'paginator'],
 					base: RB.YUIBuildPath,
 					loadOptional: true,
 			
 					onSuccess: function() {
 						var carousel = new YAHOO.widget.Carousel("home-photos", {
 							// specify number of columns and number of rows
-							numVisible: 6,
+							numVisible: [ 6, 2 ],
 							autoPlayInterval: 5000,
 							isCircular: true,
-							revealAmount: 50
+							revealAmount: 20
 						});
-						carousel.set("animation", { speed: 1 });
-						carousel.render(); // get ready for rendering the widget
+						carousel.set("animation", { speed: 2 });
+						var numItems = carousel.get("numItems");
+						var numVisible = carousel.get("numVisible");
+						var paginator = new YAHOO.widget.Paginator({
+						  containers: "photo-pager",
+						  rowsPerPage: 1,
+						  template: "{PreviousPageLink} {PageLinks} {NextPageLink}",
+						  totalRecords: Math.ceil(numItems / numVisible)
+						});
+						paginator.subscribe("changeRequest", function (state) {
+						  // set the selectedItem so that the Carousel scrolls to the page automatically
+						  carousel.set("selectedItem", (state.page - 1) * numVisible);
+						  paginator.setState(state);
+						  carousel.stopAutoPlay();
+						});
+						carousel.on("pageChange", function (page) {
+						  // Paginator's page begins from 1
+						  // Also, we need to suppress this triggering a changeRequest event.
+						  paginator.setPage(page + 1, true);
+						});
+						carousel.render();
+						paginator.render();
 						carousel.startAutoPlay();
 					}
 				});
